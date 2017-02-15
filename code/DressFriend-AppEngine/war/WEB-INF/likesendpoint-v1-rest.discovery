@@ -1,0 +1,361 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/jqcUP90I_98KX-RK6YJuy-FAGlw\"",
+ "discoveryVersion": "v1",
+ "id": "likesendpoint:v1",
+ "name": "likesendpoint",
+ "version": "v1",
+ "description": "This is an API",
+ "ownerDomain": "filip.com",
+ "ownerName": "filip.com",
+ "packagePath": "dressfriend",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://avian-destiny-735.appspot.com/_ah/api/likesendpoint/v1/",
+ "basePath": "/_ah/api/likesendpoint/v1/",
+ "rootUrl": "https://avian-destiny-735.appspot.com/_ah/api/",
+ "servicePath": "likesendpoint/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "CollectionResponse_Likes": {
+   "id": "CollectionResponse_Likes",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Likes"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "Dislikes": {
+   "id": "Dislikes",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "photo": {
+     "$ref": "Photo"
+    },
+    "user": {
+     "$ref": "User"
+    }
+   }
+  },
+  "Likes": {
+   "id": "Likes",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "photo": {
+     "$ref": "Photo"
+    },
+    "user": {
+     "$ref": "User"
+    }
+   }
+  },
+  "Photo": {
+   "id": "Photo",
+   "type": "object",
+   "properties": {
+    "commentsCount": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "description": {
+     "type": "string"
+    },
+    "dislikesCount": {
+     "type": "string",
+     "format": "int64"
+    },
+    "filename": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "likesCount": {
+     "type": "string",
+     "format": "int64"
+    },
+    "path": {
+     "type": "string"
+    },
+    "simplePost": {
+     "$ref": "SimplePost"
+    }
+   }
+  },
+  "SimplePost": {
+   "id": "SimplePost",
+   "type": "object",
+   "properties": {
+    "description": {
+     "type": "string"
+    },
+    "dislikedByMe": {
+     "type": "boolean"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "likedByMe": {
+     "type": "boolean"
+    },
+    "myDislike": {
+     "$ref": "Dislikes"
+    },
+    "myLike": {
+     "$ref": "Likes"
+    },
+    "photo_IDS": {
+     "type": "string"
+    },
+    "photos": {
+     "type": "array",
+     "items": {
+      "$ref": "Photo"
+     }
+    },
+    "postTime": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "postViewers": {
+     "type": "array",
+     "items": {
+      "$ref": "User"
+     }
+    },
+    "postedBy": {
+     "$ref": "User"
+    },
+    "userCanSeePost": {
+     "type": "array",
+     "items": {
+      "$ref": "User"
+     }
+    }
+   }
+  },
+  "User": {
+   "id": "User",
+   "type": "object",
+   "properties": {
+    "email": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "password": {
+     "type": "string"
+    },
+    "score": {
+     "type": "integer",
+     "format": "int32"
+    },
+    "signUpDate": {
+     "type": "string",
+     "format": "date-time"
+    },
+    "username": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "methods": {
+  "createLikeDeleteOldLike": {
+   "id": "likesendpoint.createLikeDeleteOldLike",
+   "path": "createLikeDeleteOldLike",
+   "httpMethod": "POST",
+   "parameters": {
+    "oldLikeId": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "oldLikeId"
+   ],
+   "request": {
+    "$ref": "Likes",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Likes"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "insertLikes": {
+   "id": "likesendpoint.insertLikes",
+   "path": "likes",
+   "httpMethod": "POST",
+   "request": {
+    "$ref": "Likes",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Likes"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "listLikesOfPhoto": {
+   "id": "likesendpoint.listLikesOfPhoto",
+   "path": "listLikesOfPhoto",
+   "httpMethod": "GET",
+   "parameters": {
+    "cursor": {
+     "type": "string",
+     "location": "query"
+    },
+    "likesCount": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "query"
+    },
+    "likesCountHashCode": {
+     "type": "integer",
+     "required": true,
+     "format": "int32",
+     "location": "query"
+    },
+    "limit": {
+     "type": "integer",
+     "format": "int32",
+     "location": "query"
+    },
+    "photoId": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "query"
+    }
+   },
+   "parameterOrder": [
+    "likesCount",
+    "likesCountHashCode",
+    "photoId"
+   ],
+   "response": {
+    "$ref": "CollectionResponse_Likes"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "removeLikes": {
+   "id": "likesendpoint.removeLikes",
+   "path": "likes/{id}",
+   "httpMethod": "DELETE",
+   "parameters": {
+    "id": {
+     "type": "string",
+     "required": true,
+     "format": "int64",
+     "location": "path"
+    }
+   },
+   "parameterOrder": [
+    "id"
+   ],
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  },
+  "updateLikes": {
+   "id": "likesendpoint.updateLikes",
+   "path": "likes",
+   "httpMethod": "PUT",
+   "request": {
+    "$ref": "Likes",
+    "parameterName": "resource"
+   },
+   "response": {
+    "$ref": "Likes"
+   },
+   "scopes": [
+    "https://www.googleapis.com/auth/userinfo.email"
+   ]
+  }
+ }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="df-persistence-unit">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<class>com.filip.dressfriend.User</class>
+		<class>com.filip.dressfriend.Dislikes</class>
+		<class>com.filip.dressfriend.Friendrequest</class>
+		<class>com.filip.dressfriend.Friendship</class>
+		<class>com.filip.dressfriend.Likes</class>
+		<class>com.filip.dressfriend.SimplePost</class>
+		<class>com.filip.dressfriend.Photo</class>
+		<class>com.filip.dressfriend.UserSeePost</class>
+		<class>com.filip.dressfriend.Comment</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.google.cloud.sql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/sn_testing" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="password" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
